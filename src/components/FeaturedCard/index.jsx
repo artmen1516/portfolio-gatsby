@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 
 function FeaturedCard({ project }) {
   return (
-    <div className='flex flex-col sm:flex-row  sm:h-52 gap-5'>
+    <div className='flex flex-col sm:flex-row gap-5 rounded-xl bg-slate-50 border-2 border-slate-200 p-5'>
       <Link
         to={`/projects/${project.slug.current}`}
         className='rounded-lg overflow-hidden sm:flex-[1_1_0%]'>

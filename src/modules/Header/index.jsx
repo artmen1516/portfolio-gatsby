@@ -4,7 +4,7 @@ import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 
 const NavLink = ({ to, children }) => (
-  <Link
+  <Link className='text-lg'
     to={`/${to}`}>
     {children}
   </Link>
@@ -15,8 +15,9 @@ export default function Simple() {
   const { sanityHeader } = useStaticQuery(query)
 
   return (
-    <div className='container m-auto'>
+    <div className='m-auto bg-slate-200 border-b-4 border-slate-200'>
       <Box
+        className='lg:mx-32 bg-white px-16'
         bg={useColorModeValue('white', 'white')}
         px={4}>
         <Flex

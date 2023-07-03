@@ -1,4 +1,4 @@
-import {graphql} from 'gatsby'
+import { graphql } from 'gatsby'
 
 export const SanityRecentPosts = graphql`
   fragment SanityHero on SanityHero {
@@ -6,6 +6,12 @@ export const SanityRecentPosts = graphql`
     _type
     title
     subtitle
+    resumeFile {
+      asset {
+        url
+        originalFilename
+      }
+    }
     imageSrc {
       asset {
         gatsbyImageData(placeholder: DOMINANT_COLOR)

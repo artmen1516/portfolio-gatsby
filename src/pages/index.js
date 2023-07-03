@@ -9,7 +9,7 @@ const IndexPage = ({ data }) => {
   console.log(data)
   return (
     <Layout>
-      <main className='flex flex-col gap-16'>
+      <main className='flex flex-col gap-4 bg-slate-200'>
         {data.sanityHomePage.modules.map((module) => {
           switch (module._type) {
             case 'hero':

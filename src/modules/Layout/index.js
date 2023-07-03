@@ -7,7 +7,7 @@ function Layout({ children }) {
     <div>
       <Header />
       {children}
-      <Footer text='Copyright ©2023 All rights reserved' />
+      <Footer />
     </div>
   );
 }

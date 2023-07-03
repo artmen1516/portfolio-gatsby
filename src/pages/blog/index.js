@@ -6,13 +6,15 @@ import PostCard from "../../components/PostCard";
 function Blog({ data }) {
   return (
     <Layout>
-      <main className='container m-auto px-5 xl:px-32 flex flex-col xl:gap-10 pt-5 xl:pt-20'>
-        <h1 className='text-3xl sm:text-5xl font-semibold text-dark p-5'>
-          Blog
-        </h1>
-        {data.allSanityPost.posts.map((post) => (
-          <PostCard key={post.id} post={post} />
-        ))}
+      <main className='m-auto xl:px-32 flex flex-col gap-10 bg-slate-200'>
+        <div className="bg-white px-5 lg:px-16 pt-5 lg:pt-20">
+          <h1 className='text-3xl sm:text-5xl font-semibold text-dark'>
+            Blog
+          </h1>
+          {data.allSanityPost.posts.map((post) => (
+            <PostCard key={post.id} post={post} />
+          ))}
+        </div>
       </main>
     </Layout>
   );
@@ -24,7 +26,7 @@ export const Head = () => <title>Blog</title>
 
 export const pageqQuery = graphql`
   query AllPosts {
-    allSanityPost {
+    allSanityPost(sort: {_updatedAt: DESC}) {
       posts: nodes {
         _updatedAt
         id
@@ -34,7 +36,7 @@ export const pageqQuery = graphql`
         title
         labels
         _rawContent
-        excerpt(limit: 250)
+        excerpt(limit: 200)
       }
     }
   }
