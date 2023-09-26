@@ -6,13 +6,13 @@ import FeaturedCard from "../../components/FeaturedCard";
 function Projects({ data }) {
   return (
     <Layout>
-      <main className='m-auto xl:px-32 flex flex-col gap-10 bg-slate-200'>
-        <div className="bg-white px-5 lg:px-16 pt-5 lg:pt-20">
-          <h1 className='text-3xl sm:text-5xl font-semibold text-dark pb-5'>
+      <main className='m-auto xl:px-32 flex flex-col gap-10 bg-background'>
+        <div className="bg-background px-5 lg:px-16 pt-5 lg:pt-20">
+          <h1 className='text-3xl sm:text-5xl font-semibold text-textPrimary pb-5'>
             Projects
           </h1>
           {data.allSanityProject.projects.map((project, index) => (
-            <div key={index} className='m-auto border-b-gray-300 border-b'>
+            <div key={index} className='m-auto'>
               <FeaturedCard project={project} />
             </div>
           ))}

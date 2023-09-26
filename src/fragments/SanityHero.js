@@ -4,7 +4,8 @@ export const SanityRecentPosts = graphql`
   fragment SanityHero on SanityHero {
     _key
     _type
-    title
+    firstTitle
+    secondTitle
     subtitle
     resumeFile {
       asset {

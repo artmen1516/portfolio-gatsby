@@ -4,8 +4,8 @@ import '../../utils/font-awesome'
 
 function IconSocial({classes,socialLink, icon, size}) {
     return (
-        <a className={classes} href={socialLink} target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={icon} size={size} />
+        <a href={socialLink} target="_blank" rel="noreferrer">
+            <FontAwesomeIcon className={classes} icon={icon} size={size} />
         </a>
     )
 }

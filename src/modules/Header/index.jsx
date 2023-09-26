@@ -2,48 +2,50 @@ import React from 'react'
 import { Box, Flex, HStack, IconButton, Stack, useColorModeValue, useDisclosure, } from '@chakra-ui/react'
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import { graphql, useStaticQuery, Link } from 'gatsby'
+import IconSocial from '../../components/IconSocial'
 
 const NavLink = ({ to, children }) => (
-  <Link className='text-lg'
+  <div className='transition ease-in-out bg-background rounded-md w-full p-0.5 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-cyan-500 duration-300'>
+    <Link className='text-lg text-textPrimary bg-background border-background m-0 p-1 rounded-md'
     to={`/${to}`}>
     {children}
-  </Link>
+    </Link>
+  </div>
 )
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { sanityHeader } = useStaticQuery(query)
+  const { sanityHeader, sanityFooter } = useStaticQuery(query)
+
+  console.log('testdata',sanityHeader)
 
   return (
-    <div className='m-auto bg-slate-200 border-b-4 border-slate-200'>
-      <Box
-        className='lg:mx-32 bg-white px-16'
-        bg={useColorModeValue('white', 'white')}
-        px={4}>
-        <Flex
-          h={16}
-          alignItems={'center'}
-          justifyContent={'right'}>
+    <div className='m-auto bg-background'>
+      <Box className='lg:mx-32 bg-background lg:px-16 text-textSecondary' px={4}>
+        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
             aria-label={'Open Menu'}
             display={{ md: 'none' }}
-            onClick={isOpen ? onClose : onOpen} />
-          <HStack
-            spacing={8}
-            alignItems={'center'}>
-            <HStack
-              as={'nav'}
-              spacing={4}
-              display={{ base: 'none', md: 'flex' }}>
-              <>
+            onClick={isOpen ? onClose : onOpen} 
+            />
+          <Flex alignItems={'center'}>
+            <Box className='text-xl'> A.M portfolio </Box>
+          </Flex>
+          <HStack spacing={8} alignItems={'center'}>
+            <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
                 {sanityHeader.links.map((link) => (
                   <NavLink key={link._key} to={link.slug.current}>{link.label}</NavLink>
                 ))}
-              </>
             </HStack>
           </HStack>
+          <Flex alignItems={'center'}>
+            <Box className='flex w-full flex-row gap-5 justify-center'>
+              {sanityFooter.socialIcons.map((icon) => (
+                <IconSocial key={icon._key} classes='text-textPrimary hover:text-cyan-500 hover:scale-[1.15]' socialLink={icon.socialLink} icon={icon.icon} size={icon.size} />))}
+            </Box>
+          </Flex>
         </Flex>
 
         {isOpen ? (
@@ -66,8 +68,32 @@ export default function Simple() {
   )
 }
 
+// const query = graphql`
+//   query Header {
+//     sanityHeader {
+//       links {
+//         _key
+//         label
+//         slug {
+//           current
+//         }
+//       }
+//     }
+// }
+// `
+
 const query = graphql`
-  query Header {
+  query {
+    sanityFooter {
+        footer
+        socialIcons{
+            _key
+            socialLink
+            size
+            icon
+        }
+    }
+
     sanityHeader {
       links {
         _key
@@ -77,5 +103,5 @@ const query = graphql`
         }
       }
     }
-  }
-  `
+}
+`

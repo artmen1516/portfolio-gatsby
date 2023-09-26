@@ -8,17 +8,17 @@ const Post = ({ data }) => {
   const { sanityPost } = data;
   return (
     <Layout>
-      <div className='w-full bg-slate-200'>
-        <main className='m-auto flex flex-col gap-10 pt-5 xl:pt-20 lg:mx-32 bg-white px-16'>
-          <h1 className='text-3xl sm:text-5xl font-semibold text-dark'>
+      <div className='w-full bg-background'>
+        <main className='m-auto flex flex-col gap-10 p-5 md:p-16 lg:py-24 lg:mx-32 bg-background'>
+          <h1 className='text-3xl sm:text-5xl font-semibold text-textPrimary text-center'>
             {sanityPost.title}
           </h1>
 
-          <div className='flex items-center gap-5'>
-            <span className='bg-primary rounded-full text-white font-semibold px-4'>
+          <div className='flex items-center gap-5 text-center justify-center'>
+            <span className='bg-primary rounded-full text-textPrimary font-semibold px-4'>
               {isoToReadableDate(sanityPost._createdAt)}
             </span>
-            <span className='text-xl font-semibold'>
+            <span className='text-xl font-semibold text-textSecondary'>
               {sanityPost.labels.join(", ")}
             </span>
           </div>

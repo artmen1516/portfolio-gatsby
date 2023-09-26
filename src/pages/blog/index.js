@@ -6,9 +6,9 @@ import PostCard from "../../components/PostCard";
 function Blog({ data }) {
   return (
     <Layout>
-      <main className='m-auto xl:px-32 flex flex-col gap-10 bg-slate-200'>
-        <div className="bg-white px-5 lg:px-16 pt-5 lg:pt-20">
-          <h1 className='text-3xl sm:text-5xl font-semibold text-dark'>
+      <main className='m-auto xl:px-32 flex flex-col gap-10 bg-background'>
+        <div className="bg-background px-5 lg:px-16 pt-5 lg:pt-20">
+          <h1 className='text-3xl sm:text-5xl font-semibold text-textPrimary pb-5'>
             Blog
           </h1>
           {data.allSanityPost.posts.map((post) => (

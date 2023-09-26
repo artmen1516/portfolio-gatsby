@@ -6,10 +6,10 @@ import { graphql } from 'gatsby'
 import Layout from '../modules/Layout'
 
 const IndexPage = ({ data }) => {
-  console.log(data)
+  // console.log(data)
   return (
     <Layout>
-      <main className='flex flex-col gap-4 bg-slate-200'>
+      <main className='flex flex-col gap-4 bg-background'>
         {data.sanityHomePage.modules.map((module) => {
           switch (module._type) {
             case 'hero':
