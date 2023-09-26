@@ -20,8 +20,8 @@ export default function Simple() {
   console.log('testdata',sanityHeader)
 
   return (
-    <div className='m-auto bg-background'>
-      <Box className='lg:mx-32 bg-background lg:px-16 text-textSecondary' px={4}>
+    <div className='md:px-16 bg-background'>
+      <Box className='lg:mx-32 bg-background text-textSecondary' px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}

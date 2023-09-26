@@ -1,18 +1,38 @@
 import { PortableText } from "@portabletext/react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { getGatsbyImageData } from "gatsby-source-sanity";
+import { getImageDimensions } from '@sanity/asset-utils'
+import urlBuilder from '@sanity/image-url'
 import React from "react";
+
+const SampleImageComponent = ({value, isInline}) => {
+  const {width, height} = getImageDimensions(value)
+  return (
+    <img
+      src={urlBuilder()
+        .dataset(process.env.GATSBY_SANITY_DATASET)
+        .projectId(process.env.GATSBY_SANITY_PROJECT_ID)
+        .image(value)
+        .width(isInline ? 100 : 800)
+        .fit('max')
+        .auto('format')
+        .url()}
+      alt={value.alt || ' '}
+      loading="lazy"
+      style={{
+        // Display alongside text if image appears inside a block text span
+        display: isInline ? 'inline-block' : 'block',
+
+        // Avoid jumping around with aspect-ratio CSS property
+        aspectRatio: width / height,
+      }}
+    />
+  )
+}
 
 const myPortableTextComponents = {
   types: {
-    image: ({ node }) => {
-      const imageData = getGatsbyImageData(
-        node.asset._ref,
-        { placeholder: "blurred" },
-        { dataset: `${process.env.GATSBY_SANITY_DATASET}`, projectId: `${process.env.GATSBY_SANITY_PROJECT_ID}` }
-      );
-      return <GatsbyImage image={imageData} alt='' />;
-    },
+    image: SampleImageComponent,
   },
   marks: {
     link: ({ children, value }) => {

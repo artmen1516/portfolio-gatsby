@@ -12,13 +12,13 @@
 **Environment variables**
 .env.development
 ```
-GATSBY_SANITY_PROJECT_ID=<project-id>
-GATSBY_SANITY_DATASET=<dataset>
+SANITY_PROJECT_ID=<project-id>
+SANITY_DATASET=<dataset>
 ```
 .env.production
 ```
-GATSBY_SANITY_PROJECT_ID=<project-id>
-GATSBY_SANITY_DATASET=<dataset>
+SANITY_PROJECT_ID=<project-id>
+SANITY_DATASET=<dataset>
 ```
 
 1.  **Create a Gatsby site.**
