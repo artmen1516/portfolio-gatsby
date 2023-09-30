@@ -4,26 +4,30 @@ import FeaturedProjects from '../modules/FeaturedProjects'
 import RecentPosts from '../modules/RecentPosts'
 import { graphql } from 'gatsby'
 import Layout from '../modules/Layout'
+import InitialEffect from '../components/InitialEffect'
 
 const IndexPage = ({ data }) => {
-  // console.log(data)
+
   return (
-    <Layout>
-      <main className='flex flex-col gap-4 bg-background'>
-        {data.sanityHomePage.modules.map((module) => {
-          switch (module._type) {
-            case 'hero':
-              return <Hero key={module._key} {...module} />
-            case 'featureProjects':
-              return <FeaturedProjects key={module._key} {...module} />
-            case 'recentPosts':
-              return <RecentPosts key={module._key} {...module} />
-            default:
-              return null
-          }
-        })}
-      </main>
-    </Layout>
+    <>
+      <InitialEffect/>
+      <Layout>
+        <main className='flex flex-col gap-4 bg-background'>
+          {data.sanityHomePage.modules.map((module) => {
+            switch (module._type) {
+              case 'hero':
+                return <Hero key={module._key} {...module} />
+              case 'featureProjects':
+                return <FeaturedProjects key={module._key} {...module} />
+              case 'recentPosts':
+                return <RecentPosts key={module._key} {...module} />
+              default:
+                return null
+            }
+          })}
+        </main>
+      </Layout>
+    </>
   )
 }
 

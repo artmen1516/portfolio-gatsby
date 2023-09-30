@@ -3,6 +3,10 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      screens: {
+        '3xl': '1600px',
+        '4xl': '1900px',
+      },
       colors: {
         buttonPrimary: '#e2e8f0',
         buttonSecondary: '#EDF7FA',

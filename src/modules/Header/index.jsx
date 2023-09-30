@@ -1,12 +1,12 @@
 import React from 'react'
-import { Box, Flex, HStack, IconButton, Stack, useColorModeValue, useDisclosure, } from '@chakra-ui/react'
+import { Box, Flex, HStack, IconButton, Stack, useDisclosure } from '@chakra-ui/react'
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import IconSocial from '../../components/IconSocial'
 
 const NavLink = ({ to, children }) => (
-  <div className='transition ease-in-out bg-background rounded-md w-full p-0.5 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-cyan-500 duration-300'>
-    <Link className='text-lg text-textPrimary bg-background border-background m-0 p-1 rounded-md'
+  <div className='transition ease-in-out rounded-md w-full p-0.5 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-cyan-500 duration-300'>
+    <Link className='text-lg 4xl:text-2xl text-textPrimary border-background m-0 p-1 rounded-md'
     to={`/${to}`}>
     {children}
     </Link>
@@ -20,8 +20,8 @@ export default function Simple() {
   console.log('testdata',sanityHeader)
 
   return (
-    <div className='md:px-16 bg-background'>
-      <Box className='lg:mx-32 bg-background text-textSecondary' px={4}>
+    <div>
+      <Box className='text-textSecondary' px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -31,7 +31,7 @@ export default function Simple() {
             onClick={isOpen ? onClose : onOpen} 
             />
           <Flex alignItems={'center'}>
-            <Box className='text-xl'> A.M portfolio </Box>
+            <Box className='text-xl 4xl:text-2xl'>Portfolio</Box>
           </Flex>
           <HStack spacing={8} alignItems={'center'}>
             <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
@@ -43,7 +43,7 @@ export default function Simple() {
           <Flex alignItems={'center'}>
             <Box className='flex w-full flex-row gap-5 justify-center'>
               {sanityFooter.socialIcons.map((icon) => (
-                <IconSocial key={icon._key} classes='text-textPrimary hover:text-cyan-500 hover:scale-[1.15]' socialLink={icon.socialLink} icon={icon.icon} size={icon.size} />))}
+                <IconSocial key={icon._key} classes='text-textPrimary hover:text-cyan-500 hover:scale-[1.15] 4xl:text-4xl' socialLink={icon.socialLink} icon={icon.icon} size={icon.size} />))}
             </Box>
           </Flex>
         </Flex>

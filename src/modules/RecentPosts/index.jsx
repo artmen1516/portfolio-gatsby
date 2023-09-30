@@ -5,11 +5,11 @@ import PostCard from '../../components/PostCard'
 function RecentPosts() {
   const { recentSanityPosts: { posts } } = useStaticQuery(query)
   return (
-    <div className='bg-background'>
-      <div className='m-auto flex flex-col items-start lg:mx-32 bg-background px-5 lg:px-16'>
+    <div>
+      <div className='m-auto flex flex-col items-start'>
         <div className='flex justify-between m-auto w-full text-left py-5'>
-          <span className='text-md sm:text-2xl lg:text-3xl font-semibold text-textPrimary'>Recent posts</span>
-          <Link to='/blog' className='font-semibold text-blue-600'>View all</Link>
+          <span className='md:text-2xl 4xl:text-5xl font-semibold text-textPrimary'>Recent posts</span>
+          <Link to='/blog' className='font-semibold text-blue-600 4xl:text-xl'>View all</Link>
 
         </div>
         <div className='flex flex-col w-full lg:flex-row gap-5 pb-5 justify-center'>

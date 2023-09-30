@@ -1,6 +1,4 @@
 import { PortableText } from "@portabletext/react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { getGatsbyImageData } from "gatsby-source-sanity";
 import { getImageDimensions } from '@sanity/asset-utils'
 import urlBuilder from '@sanity/image-url'
 import React from "react";

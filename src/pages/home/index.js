@@ -1,12 +1,18 @@
 import React from "react";
 import { graphql } from 'gatsby'
 import IndexPage from "..";
+import TransitionEffect from "../../components/TransitionEffect";
 
-const HomePage = ({ data }) => {
-    return <IndexPage data={data} />;
-};
+function HomePage({ data }) {
+  return (
+    <>
+    <TransitionEffect/>
+    <IndexPage data={data} />
+    </>
+  )
+}
 
-export default HomePage;
+export default HomePage
 
 export const Head = () => <title>Home Page</title>
 
