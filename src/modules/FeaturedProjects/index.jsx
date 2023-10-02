@@ -12,7 +12,7 @@ function FeaturedProjects({ projects }) {
         </div>
         <div className='flex flex-col w-full lg:flex-row flex-wrap gap-5 pb-5 justify-center'>
           {projects.map((project,index) =>
-              <FeaturedCard project={project}/>
+              <FeaturedCard key={index} project={project}/>
             )
           }
         </div>

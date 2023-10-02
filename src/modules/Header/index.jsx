@@ -17,8 +17,6 @@ export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { sanityHeader, sanityFooter } = useStaticQuery(query)
 
-  console.log('testdata',sanityHeader)
-
   return (
     <div>
       <Box className='text-textSecondary' px={4}>

@@ -2,6 +2,7 @@ import * as React from 'react'
 import Hero from '../modules/Hero'
 import FeaturedProjects from '../modules/FeaturedProjects'
 import RecentPosts from '../modules/RecentPosts'
+import SkillsSection from '../modules/SkillsSection'
 import { graphql } from 'gatsby'
 import Layout from '../modules/Layout'
 import InitialEffect from '../components/InitialEffect'
@@ -16,7 +17,12 @@ const IndexPage = ({ data }) => {
           {data.sanityHomePage.modules.map((module) => {
             switch (module._type) {
               case 'hero':
-                return <Hero key={module._key} {...module} />
+                return (
+                <> 
+                  <Hero key={module._key} {...module} />
+                  <SkillsSection key={`${module._key}1`} /> 
+                </>
+                )
               case 'featureProjects':
                 return <FeaturedProjects key={module._key} {...module} />
               case 'recentPosts':
@@ -25,6 +31,7 @@ const IndexPage = ({ data }) => {
                 return null
             }
           })}
+
         </main>
       </Layout>
     </>
