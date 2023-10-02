@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 
 function FeaturedCard({ project }) {
   return (
-    <div className='max-w-md bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-xl p-0.5 mb-5'>
+    <div className='max-w-md max-h-full bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-xl p-0.5 mb-5'>
       <div className='flex flex-col gap-5 mx-auto p-5 rounded-xl bg-background min-h-full items-center'>
         <Link
           to={`/projects/${project.slug.current}`}

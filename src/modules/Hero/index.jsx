@@ -10,7 +10,7 @@ function Hero({ firstTitle, secondTitle, subtitle, imageSrc, buttonLabel, resume
 
   return (
     <div className='min-h-[calc(100vh-6rem)] flex flex-col justify-center p-5 bg-background'>
-      <div className='flex w-full flex-col-reverse md:flex-row items-center gap-10 mb-10 md:mb-0'>
+      <div className='flex w-full flex-col-reverse lg:flex-row items-center gap-10 mb-10 md:mb-0'>
         <div className='flex flex-col gap-5 md:gap-10 items-center md:items-start'>
           <div>
           <div className='flex flex-row justify-center md:justify-start'>

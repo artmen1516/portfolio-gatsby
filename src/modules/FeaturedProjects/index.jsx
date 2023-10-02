@@ -10,7 +10,7 @@ function FeaturedProjects({ projects }) {
           <span className='text-xl md:text-2xl 4xl:text-5xl font-semibold text-textPrimary'>My projects</span>
           <Link to='/projects' className='font-semibold text-blue-600 4xl:text-xl'>View all</Link>
         </div>
-        <div className='flex flex-col w-full lg:flex-row gap-5 pb-5 justify-center'>
+        <div className='flex flex-col w-full lg:flex-row flex-wrap gap-5 pb-5 justify-center'>
           {projects.map((project,index) =>
               <FeaturedCard project={project}/>
             )

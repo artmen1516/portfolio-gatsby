@@ -15,7 +15,7 @@ function Projects({ data }) {
               <h1 className='text-3xl 4xl:text-5xl font-semibold text-textPrimary pb-5'>
                 Projects
               </h1>
-              <div className='flex flex-col w-full lg:flex-row gap-5 pb-5 justify-center'>
+              <div className='flex flex-col flex-wrap w-full lg:flex-row gap-5 pb-5 justify-center'>
                 {data.allSanityProject.projects.map((project) => (
                     <FeaturedCard project={project} />
                 ))}
