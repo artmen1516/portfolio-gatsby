@@ -5,12 +5,12 @@ import { graphql, useStaticQuery, Link } from 'gatsby'
 import IconSocial from '../../components/IconSocial'
 
 const NavLink = ({ to, children }) => (
-  <div className='transition ease-in-out rounded-md w-full p-0.5 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-cyan-500 duration-300'>
-    <Link className='text-lg 4xl:text-2xl text-textPrimary border-background m-0 p-1 rounded-md'
-    to={`/${to}`}>
+  <Link className='transition ease-in-out rounded-md w-full p-0.5 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-cyan-500 duration-300'
+  to={`/${to}`}>
+    <div className='text-lg 4xl:text-2xl text-textPrimary border-background m-0 p-1 rounded-md'>
     {children}
-    </Link>
-  </div>
+    </div>
+  </Link>
 )
 
 export default function Simple() {
