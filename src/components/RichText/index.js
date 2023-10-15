@@ -6,25 +6,30 @@ import React from "react";
 const SampleImageComponent = ({value, isInline}) => {
   const {width, height} = getImageDimensions(value)
   return (
-    <img
-      src={urlBuilder()
-        .dataset(process.env.GATSBY_SANITY_DATASET)
-        .projectId(process.env.GATSBY_SANITY_PROJECT_ID)
-        .image(value)
-        .width(isInline ? 100 : 800)
-        .fit('max')
-        .auto('format')
-        .url()}
-      alt={value.alt || ' '}
-      loading="lazy"
-      style={{
-        // Display alongside text if image appears inside a block text span
-        display: isInline ? 'inline-block' : 'block',
+    <>
+      <img
+        src={urlBuilder()
+          .dataset(process.env.GATSBY_SANITY_DATASET)
+          .projectId(process.env.GATSBY_SANITY_PROJECT_ID)
+          .image(value)
+          .width(isInline ? 100 : 800)
+          .fit('max')
+          .auto("format")
+          .url()}
+        alt={value.alt || ' '}
+        loading='lazy'
+        style={{
+          // Display alongside text if image appears inside a block text span
+          display: isInline ? 'inline-block' : 'block',
 
-        // Avoid jumping around with aspect-ratio CSS property
-        aspectRatio: width / height,
-      }}
-    />
+          // Avoid jumping around with aspect-ratio CSS property
+          aspectRatio: width / height,
+          borderRadius: '0.5rem',
+          maxHeight: '400px',
+
+        }}
+      /><br />
+    </>
   )
 }
 
@@ -36,12 +41,17 @@ const myPortableTextComponents = {
     link: ({ children, value }) => {
       const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
       return (
-        <a href={value.href} rel={rel}>
+        <a 
+        href={value.href} 
+        rel={rel}
+        style={{color: 'cyan'}}
+        >
           {children}
         </a>
       )
     },
     strong: ({ children }) => <strong className='font-semibold'>{children}</strong>,
+    code: ({ children }) => <code className='bg-gray-950 text-slate-200 px-1'>{children}</code>,
   },
   block: {
     style: 'normal',
@@ -60,8 +70,8 @@ const myPortableTextComponents = {
   },
   listItem: {
     style: 'normal',
-    bullet: ({ children }) => <li className='text-base sm:text-lg text-textPrimary text-justify pb-3'>{children}</li>,
-    number: ({ children }) => <li className='text-base sm:text-lg text-textPrimary text-justify pb-3'>{children}</li>,
+    bullet: ({ children }) => <li className='text-base sm:text-lg text-textSecondary text-justify pb-3'>{children}</li>,
+    number: ({ children }) => <li className='text-base sm:text-lg text-textSecondary text-justify pb-3'>{children}</li>,
   },
 };
 

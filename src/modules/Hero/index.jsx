@@ -5,7 +5,7 @@ import Button from '../../components/Button'
 function Hero({ firstTitle, secondTitle, subtitle, imageSrc, buttonLabel, resumeFile }) {
 
   const handleResumeClick = () => {
-    window.open(resumeFile.asset.url + '?dl=' + resumeFile.asset.originalFilename, '_blank')
+    window.open(resumeFile.asset.url + '?' + resumeFile.asset.originalFilename, '_blank') // Add ?dl= to download file
   }
 
   return (

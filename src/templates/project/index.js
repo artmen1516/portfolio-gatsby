@@ -18,10 +18,10 @@ const Project = ({ data }) => {
               {sanityProject.title}
             </h1>
             <div className='flex items-center gap-5 text-center justify-center'>
-              <span className='bg-primary rounded-full text-white font-semibold px-4'>
+              <span className='font-semibold text-textPrimary px-4'>
                 {isoToReadableDate(sanityProject._createdAt)}
               </span>
-              <span className='text-xl font-semibold text-textSecondary'>
+              <span className='font-semibold text-textSecondary'>
                 {sanityProject.type.join(", ")}
               </span>
             </div>
